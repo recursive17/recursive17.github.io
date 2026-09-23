@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REcursive - локальный плеер</title>
+<meta name="description" content="REcursive — нативный локальный музыкальный плеер для Windows. Живые обои, текст песен слово в слово, эквалайзер на 10 полос и настраиваемое оформление.">
+<meta name="theme-color" content="#070708">
+<meta property="og:title" content="REcursive — локальный плеер для Windows">
+<meta property="og:description" content="Живые обои, текст песен слово в слово, эквалайзер на 10 полос. Нативный C++, без Electron.">
+<meta property="og:image" content="assets/shots/lyrics.jpg">
+<link rel="icon" href="assets/recursive.ico">
+<link rel="preload" href="assets/fonts/inter-cyrillic-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=17">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<canvas class="nodes" id="nodes" aria-hidden="true"></canvas>
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="REcursive — наверх">
+    <img src="assets/recursive.ico" alt="" width="28" height="28"><span>REcursive</span>
+  </a>
+  <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  <nav id="menu" class="menu">
+    <a href="#shots" data-t>Скриншоты</a>
+    <a href="#features" data-t>Особенности</a>
+    <a href="#fast" data-t>Скорость</a>
+    <a class="btn btn-sm" href="#download" data-t>Скачать</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-logo" src="assets/recursive.ico" alt="Знак REcursive" width="96" height="96">
+    <h1 data-t>Музыка<br>без <span class="grad">чужих правил</span></h1>
+    <p class="tag" data-t>REcursive — локальный плеер с лучшей кастомизацией</p>
+    <p class="lead" data-t>Нативный плеер для Windows. Живые обои, текст песен слово в слово, эквалайзер на десять полос и оформление, которое настраивается под тебя.</p>
+    <a class="btn btn-lg" href="https://github.com/recursive17/recursive-site/releases/download/RETAG/recursive-setup.exe">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-t>Скачать</span>
+    </a>
+    <p class="meta" data-t>для Windows 10/11 · 64-бит · 49 МБ<br>нативный C++ · без Electron</p>
+    <p class="upd" data-ver="1.0.1" data-date="2026-09-26">Версия 1.0.1 · обновлено 26 сентября 2026</p>
+  </section>
+
+  <section id="shots" class="shots" aria-roledescription="карусель" aria-label="Скриншоты плеера">
+    <div class="stage-wrap">
+      <div class="stage" id="stage">
+        <figure class="slide" data-i="0"><img src="assets/shots/library.jpg" alt="Главный экран: список треков и плеер с обложкой" width="1918" height="1027"></figure>
+        <figure class="slide" data-i="1"><img src="assets/shots/lyrics.jpg" alt="Полноэкранный режим с текстом песни, строка подсвечивается слово в слово" width="1916" height="1024" loading="lazy"></figure>
+        <figure class="slide" data-i="2"><img src="assets/shots/settings.jpg" alt="Настройки оформления: обои, размытие и эффекты фона" width="1914" height="1027" loading="lazy"></figure>
+        <figure class="slide" data-i="3"><img src="assets/shots/shop.jpg" alt="Магазин тем, скинов карточек и эффектов" width="1913" height="1019" loading="lazy"></figure>
+      </div>
+    </div>
+    <p class="caption" id="caption" aria-live="polite"></p>
+    <div class="thumbs" role="tablist" aria-label="Выбор скриншота">
+      <button role="tab" data-go="0" data-cap="Библиотека и плеер"><img src="assets/shots/library.jpg" alt="" loading="lazy"></button>
+      <button role="tab" data-go="1" data-cap="Текст песни во весь экран"><img src="assets/shots/lyrics.jpg" alt="" loading="lazy"></button>
+      <button role="tab" data-go="2" data-cap="Настройки оформления"><img src="assets/shots/settings.jpg" alt="" loading="lazy"></button>
+      <button role="tab" data-go="3" data-cap="Магазин"><img src="assets/shots/shop.jpg" alt="" loading="lazy"></button>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <h2 class="reveal" data-t>Особенности</h2>
+
+    <div class="group"><h3 class="chip" data-t>Звук</h3><div class="grid">
+      <div class="f reveal"><div class="demo" data-demo="eq"></div><b data-t>Эквалайзер на 10 полос</b><p data-t>Пресеты, предусиление и настройка ширины полос.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="xfade"></div><b data-t>Кроссфейд до 15 секунд</b><p data-t>Треки перетекают друг в друга без паузы.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="surround"></div><b data-t>Объёмный звук</b><p data-t>Расширение стереобазы одним переключателем.</p></div>
+    </div></div>
+
+    <div class="group"><h3 class="chip" data-t>Текст песен</h3><div class="grid">
+      <div class="f reveal"><div class="demo" data-demo="word"></div><b data-t>Слово в слово</b><p data-t>Строки подсвечиваются ровно в такт, а не целиком.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="bglyr"></div><b data-t>Текст песни на фоне!</b><p data-t>Крупные строки плывут прямо за интерфейсом и подсвечиваются в такт.</p></div>
+    </div></div>
+
+    <div class="group"><h3 class="chip" data-t>Оформление</h3><div class="grid">
+      <div class="f reveal"><div class="demo" data-demo="fx"></div><b data-t>15 эффектов фона</b><p data-t>Снег, метеоры, сияние, туманность и другие.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="wall"></div><b data-t>Свои обои</b><p data-t>Любая картинка или видео в mp4 и mov.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="themes"></div><b data-t>Семь тем и конструктор</b><p data-t>Готовые палитры плюс свои цвета для панелей, рамок и акцента.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="skins"></div><b data-t>Скины карточек</b><p data-t>Тлеющие, неоновые, сияющие, морозные, с каплями — с двумя своими цветами.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="viz"></div><b data-t>Визуалайзер под обложку</b><p data-t>Цвет подхватывается с обложки текущего трека.</p></div>
+    </div></div>
+
+    <div class="group"><h3 class="chip" data-t>Библиотека</h3><div class="grid">
+      <div class="f reveal"><div class="demo" data-demo="folders"></div><b data-t>Папки как плейлисты</b><p data-t>Раскладка на диске сразу становится структурой библиотеки.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="genres"></div><b data-t>Жанры из тегов</b><p data-t>Вытягиваются автоматически и сворачиваются в короткие названия.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="tags"></div><b data-t>Свои теги</b><p data-t>Грустное, ночное, тренировка — и любые собственные.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="recent"></div><b data-t>Недавнее</b><p data-t>Сто последних треков отдельной вкладкой.</p></div>
+    </div></div>
+
+    <div class="group"><h3 class="chip" data-t>Система</h3><div class="grid">
+      <div class="f reveal"><div class="demo shot"><img src="assets/shots/discord.png" alt="Статус в Discord: «Listening to REcursive», трек, обложка и прогресс" width="452" height="153" loading="lazy"></div><b data-t>Discord</b><p data-t>Стильный Discord RPC.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="telegram"></div><b data-t>Telegram</b><p data-t>Скачивание через бота сразу в папку с музыкой.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="fps"></div><b data-t>Ограничение FPS</b><p data-t>От 30 до 144 или вертикальная синхронизация.</p></div>
+    </div></div>
+
+    <div class="group"><h3 class="chip" data-t>Ещё</h3><div class="grid">
+      <div class="f reveal"><div class="demo" data-demo="shop"></div><b data-t>Магазин</b><p data-t>Валюта капает за прослушивание, на неё открываются темы и эффекты.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="recap"></div><b data-t>Итоги месяца</b><p data-t>Сколько слушал и что чаще всего — раз в месяц.</p></div>
+      <div class="f reveal"><div class="demo" data-demo="langs"></div><b data-t>Четыре языка</b><p data-t>Русский, английский, китайский, японский.</p></div>
+    </div></div>
+  </section>
+
+  <section id="fast" class="fast reveal">
+    <div class="native"><b data-t>Нативный C++</b><p data-t>Не Electron и не браузер внутри. Обычное приложение для Windows.</p></div>
+    <div><b data-t>DirectX 11</b><p data-t>Интерфейс рисует видеокарта, поэтому анимации не съедают процессор.</p></div>
+  </section>
+
+  <section id="download" class="dl reveal">
+    <h2 data-t>Забирай</h2>
+    <a class="btn btn-lg" href="https://github.com/recursive17/recursive-site/releases/download/RETAG/recursive-setup.exe">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-t>Скачать для Windows</span>
+    </a>
+        <p class="upd" data-ver="1.0.1" data-date="2026-09-26">Версия 1.0.1 · обновлено 26 сентября 2026</p>
+    <p class="tech" data-t>recursive-setup.exe · 49 МБ · Windows 10/11 x64</p>
+    <p class="hash"><span>SHA-256:</span> <code>892B2217B28C521C295BDCF29A1B8AA652597167B31EEDE4569D661DE9F33ECB</code></p>
+    <p class="note" data-t>Установщик не подписан, сам плеер подписан самоподписанным сертификатом. SmartScreen может предупредить при первом запуске — это ожидаемо для приложения без коммерческого сертификата. Файл можно проверить по хешу.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="brand"><img src="assets/recursive.ico" alt="" width="22" height="22"><span data-t>© 2026 recursive1. Все права защищены.</span></div>
+  <span class="foot-r"><a href="licenses.html">Лицензии</a> · v1.0.1</span>
+</footer>
+
+<script src="i18n.js?v=17" defer></script>
+<script src="script.js?v=17" defer></script>
+<script src="demos.js?v=17" defer></script>
+</body>
+</html>

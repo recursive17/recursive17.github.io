@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REcursive - сторонние компоненты</title>
+<meta name="theme-color" content="#070708">
+<link rel="icon" href="assets/recursive.ico">
+<link rel="stylesheet" href="style.css?v=10">
+<style>
+  .lic{max-width:820px;margin:0 auto;padding:110px 16px 40px}
+  .lic h1{font-size:clamp(32px,5vw,52px);animation:none;margin-bottom:12px}
+  .lic .sub{color:var(--muted);margin-bottom:40px}
+  .lic h2{font-size:22px;text-align:left;margin:40px 0 12px}
+  .lic table{width:100%;border-collapse:collapse;font-size:14px}
+  .lic th,.lic td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .lic th{color:var(--muted);font-weight:600}
+  .lic td a{text-decoration:underline;text-underline-offset:3px}
+  .lic pre{white-space:pre-wrap;font:13px/1.6 ui-monospace,Consolas,monospace;color:#b5b4bc;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .lic p{color:#c9c8cf;margin:10px 0}
+  .back{display:inline-block;margin-bottom:28px;color:var(--muted)}
+  .back:hover{color:var(--text)}
+  @media (max-width:600px){.lic table,.lic tbody,.lic tr,.lic td{display:block}.lic thead{display:none}.lic td{border:0;padding:4px 0}.lic tr{padding:12px 0;border-bottom:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+<header class="nav">
+  <a class="brand" href="./"><img src="assets/recursive.ico" alt="" width="28" height="28"><span>REcursive</span></a>
+</header>
+
+<main class="lic">
+  <a class="back" href="./">← На главную</a>
+  <h1>Сторонние компоненты</h1>
+  <p class="sub">REcursive — закрытое приложение. © 2026 recursive1, все права защищены. В нём используются следующие компоненты сторонних авторов, каждый под своей лицензией.</p>
+
+  <table>
+    <thead><tr><th>Компонент</th><th>Автор</th><th>Лицензия</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://github.com/ocornut/imgui">Dear ImGui</a></td><td>Omar Cornut</td><td>MIT</td></tr>
+      <tr><td><a href="https://github.com/nlohmann/json">nlohmann/json</a></td><td>Niels Lohmann</td><td>MIT</td></tr>
+      <tr><td><a href="https://freetype.org">FreeType</a></td><td>The FreeType Project</td><td>FreeType License (FTL)</td></tr>
+      <tr><td><a href="https://github.com/tdlib/td">TDLib</a> (tdjson.dll)</td><td>Aliaksei Levin, Arseny Smirnov</td><td>Boost Software License 1.0</td></tr>
+      <tr><td><a href="https://github.com/mackron/miniaudio">miniaudio</a></td><td>David Reid</td><td>Public domain / MIT-0</td></tr>
+      <tr><td><a href="https://github.com/nothings/stb">stb</a></td><td>Sean Barrett</td><td>Public domain / MIT</td></tr>
+      <tr><td><a href="https://github.com/mackron/dr_libs">dr_libs</a></td><td>David Reid</td><td>Public domain / MIT-0</td></tr>
+      <tr><td><a href="https://fonts.google.com/noto">Noto Sans JP, Noto Sans TC</a></td><td>The Noto Project Authors</td><td>SIL Open Font License 1.1</td></tr>
+      <tr><td><a href="https://fonts.google.com/specimen/Poppins">Poppins</a></td><td>Indian Type Foundry</td><td>SIL Open Font License 1.1</td></tr>
+      <tr><td><a href="https://rsms.me/inter/">Inter</a> (шрифт сайта)</td><td>The Inter Project Authors</td><td>SIL Open Font License 1.1</td></tr>
+    </tbody>
+  </table>
+
+  <h2>FreeType</h2>
+  <p>Portions of this software are copyright © The FreeType Project (www.freetype.org). All rights reserved.</p>
+
+  <h2>MIT License</h2>
+  <p>Dear ImGui — Copyright (c) 2014-2026 Omar Cornut<br>nlohmann/json — Copyright (c) 2013-2026 Niels Lohmann</p>
+<pre>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+
+  <h2>Boost Software License 1.0</h2>
+  <p>TDLib — Copyright Aliaksei Levin (levlam@telegram.org), Arseny Smirnov (arseny30@gmail.com)</p>
+<pre>Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the "Software") to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+
+  <h2>SIL Open Font License 1.1</h2>
+  <p>Шрифты Noto Sans JP, Noto Sans TC, Poppins и Inter распространяются под SIL Open Font License 1.1 без изменений и под своими оригинальными именами. Полный текст лицензии: <a href="https://openfontlicense.org/open-font-license-official-text/">openfontlicense.org</a>.</p>
+
+  <h2>miniaudio, stb, dr_libs</h2>
+  <p>Выпущены в общественное достояние (public domain), с альтернативной лицензией MIT-0 / MIT. Спасибо авторам.</p>
+</main>
+
+<footer class="foot">
+  <div class="brand"><img src="assets/recursive.ico" alt="" width="22" height="22"><span>© 2026 recursive1. Все права защищены.</span></div>
+  <span>v1.0.1</span>
+</footer>
+</body>
+</html>
